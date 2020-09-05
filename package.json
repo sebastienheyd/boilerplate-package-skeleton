@@ -1,0 +1,7 @@
+{
+  "src/ServiceProvider.php": "src/:uc:packageServiceProvider.php",
+  "src/config/config.php": "src/config/:package.php",
+  "src/database/permissions.php": "src/database/:date_:sc:package_access_permission.php",
+  "src/resources/lang/default": "src/resources/lang/:locale",
+  "src/routes/routes.php": "src/routes/:package.php"
+}

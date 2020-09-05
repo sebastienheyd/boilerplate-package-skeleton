@@ -20,21 +20,21 @@
     },
     "autoload": {
         "psr-4": {
-            ":sc:vendor\\:sc:package\\": "src/"
+            ":uc:vendor\\:uc:package\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            ":sc:vendor\\:sc:package\\Tests\\": "tests"
+            ":uc:vendor\\:uc:package\\Tests\\": "tests"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                ":sc:vendor\\:sc:package\\:sc:packageServiceProvider"
+                ":uc:vendor\\:uc:package\\:uc:packageServiceProvider"
             ],
             "aliases": {
-                ":sc:package": ":sc:vendor\\:sc:package\\Facades\\:sc:package"
+                ":uc:package": ":uc:vendor\\:uc:package\\Facades\\:uc:package"
             }
         }
     }

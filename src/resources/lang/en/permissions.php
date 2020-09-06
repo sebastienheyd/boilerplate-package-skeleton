@@ -1,8 +1,9 @@
 <?php
 
 return [
-    'access' => [
-        'name'        => 'Access to :package',
-        'description' => 'Allow access to :package',
+    'category' => ':wd:package',
+    'access'   => [
+        'name'        => 'Access to :wd:package',
+        'description' => 'Allow access to :wd:package',
     ]
 ];

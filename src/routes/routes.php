@@ -14,5 +14,5 @@ $default = [
 ];
 
 Route::group($default, function () {
-
+    Route::resource(':resource', ':uc:resourceController');
 });

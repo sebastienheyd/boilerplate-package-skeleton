@@ -13,7 +13,7 @@ class :uc:packageServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //$this->loadMigrationsFrom(__DIR__.'/migrations');
+        $this->loadMigrationsFrom(__DIR__.'/migrations');
         $this->loadTranslationsFrom(__DIR__.'/resources/lang', ':package');
         $this->loadViewsFrom(__DIR__.'/resources/views', ':package');
         $this->loadRoutesFrom(__DIR__.'/routes/:package.php');
@@ -32,6 +32,10 @@ class :uc:packageServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(__DIR__.'/config/:package.php', ':package');
+
+        app('boilerplate.menu.items')->registerMenuItem([
+            Menu\:uc:package::class,
+        ]);
     }
 
     /**

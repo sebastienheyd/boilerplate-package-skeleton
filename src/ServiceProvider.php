@@ -50,6 +50,13 @@ class :uc:packageServiceProvider extends ServiceProvider
             __DIR__.'/config/:package.php' => config_path(':package.php'),
         ], [':package', 'config']);
 
+        // Publishing public folder.
+        if (is_dir(__DIR__.'/public')) {
+            $this->publishes([
+                __DIR__.'/public' => public_path('assets/vendor/:package')
+            ], 'public');
+        }
+
         // Publishing the translation files.
         /*$this->publishes([
             __DIR__.'/resources/lang' => resource_path('lang/vendor/:vendor/:package'),

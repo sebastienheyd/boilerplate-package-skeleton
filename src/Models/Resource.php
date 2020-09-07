@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class :uc:resource extends Model
 {
     protected $table = ':pl:resource';
-    protected $fillable = [];
+    protected $fillable = ['label'];
 }

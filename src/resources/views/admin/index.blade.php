@@ -1,9 +1,8 @@
 @extends('boilerplate::layout.index', [
-    'title' => __(':package:::resource.title'),
-    'subtitle' => __(':package:::resource.list'),
+    'title' => __('~package::~resource.title'),
+    'subtitle' => __('~package::~resource.list'),
     'breadcrumb' => [
-        __(':package:::resource.title'),
-        __(':package:::resource.list'),
+        __('~package::~resource.title'),
     ]
 ])
 
@@ -11,18 +10,19 @@
     <div class="row">
         <div class="col-sm-12 mb-3">
             <span class="btn-group float-right">
-                <a href="{{ route(":resource.create") }}" class="btn btn-primary">
-                    @lang(':package:::resource.create')
+                <a href="{{ route("~package.~resource.create") }}" class="btn btn-primary">
+                    @lang('~package::~resource.create')
                 </a>
             </span>
         </div>
     </div>
     @component('boilerplate::card')
         <div class="table-responsive">
-            <table class="table table-striped table-hover va-middle" id=":pl:resource-table">
+            <table class="table table-striped table-hover va-middle" id="~pl:resource-table">
                 <thead>
                     <tr>
-                        <th>@lang(':package:::resource.id')</th>
+                        <th>@lang('~package::~resource.id')</th>
+                        <th>@lang('~package::~resource.label')</th>
                         <th>{{-- buttons --}}</th>
                     </tr>
                 </thead>
@@ -36,18 +36,19 @@
 
 @push('js')
     <script>
-        dTable = $('#:pl:resource-table').DataTable({
+        dTable = $('#~pl:resource-table').DataTable({
             processing: true,
             serverSide: true,
             //stateSave: true,
             autoWidth: false,
             ajax: {
-                url: '{!! route(':resource.datatable') !!}',
+                url: '{!! route('~package.~resource.datatable') !!}',
                 type: 'post',
             },
             order: [[0, 'desc']],
             columns: [
                 {data: 'id', name: 'id', width: '10px'},
+                {data: 'label', name: 'label'},
                 {
                     data: 'buttons',
                     name: 'buttons',
@@ -62,8 +63,8 @@
         $(document).on('click', 'button[data-action=delete]', function (e) {
             e.preventDefault()
             let url = $(this).data('href')
-            bootbox.confirm("@lang(':package:::resource.delete_confirm')", function(res) {
-                if(res === false) {
+            bootbox.confirm("@lang('~package::~resource.delete_confirm')", function (res) {
+                if (res === false) {
                     return
                 }
 
@@ -71,12 +72,13 @@
                     url: url,
                     type: 'delete',
                     success: function (res) {
-                        if(res.success) {
+                        if (res.success) {
                             dTable.ajax.reload()
-                            growl("@lang(':package:::resource.delete_success')", "success")
+                            growl("@lang('~package::~resource.delete_success')", "success")
                         }
                     }
                 })
             })
+        })
     </script>
 @endpush

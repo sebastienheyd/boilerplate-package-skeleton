@@ -1,6 +1,6 @@
 <?php
 
-namespace :uc:vendor\:uc:package\Tests;
+namespace ~uc:vendor\~uc:package\Tests;
 
 use PHPUnit\Framework\TestCase;
 

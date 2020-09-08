@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'title' => ':wd:package',
-    'index' => 'Manage :uc:pl:resource',
-    'add'   => 'Add :wd:resource',
+    'title' => '~wd:package',
+    'index' => '~uc:pl:resource management',
+    'add'   => 'Add ~wd:resource',
 ];

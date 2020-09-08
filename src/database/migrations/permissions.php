@@ -1,16 +1,14 @@
 <?php
 
-// phpcs:disable PSR1.Classes.ClassDeclaration.MissingNamespace
-
 use Illuminate\Database\Migrations\Migration;
 
-class :uc:packageAccessPermission extends Migration
+class ~uc:packagePermissions extends Migration
 {
     private $permissions = [
         [
-            'name'         => ':sc:package_access',
-            'display_name' => ':package::permissions.access.name',
-            'description'  => ':package::permissions.access.description',
+            'name'         => '~sc:package_access',
+            'display_name' => '~package::permissions.access.name',
+            'description'  => '~package::permissions.access.description',
         ],
     ];
 
@@ -21,10 +19,13 @@ class :uc:packageAccessPermission extends Migration
      */
     public function up()
     {
-        // Insert default permissions
+        $categoryId = DB::table('permissions_categories')->where('name', '~sc:package')->first()->id;
+
+        // Insert permissions
         foreach ($this->permissions as $permission) {
             $permission['created_at'] = date('Y-m-d H:i:s');
             $permission['updated_at'] = date('Y-m-d H:i:s');
+            $permission['category_id'] = $categoryId;
             DB::table('permissions')->insert($permission);
         }
     }

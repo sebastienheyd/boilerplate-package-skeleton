@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace ~uc:vendor\~uc:package\Controllers;
 
+use App\Http\Controllers\Controller;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -13,9 +14,9 @@ use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 use Throwable;
 use Yajra\DataTables\DataTables;
-use :uc:vendor\:uc:package\Models\:uc:resource;
+use ~uc:vendor\~uc:package\Models\~uc:resource;
 
-class :uc:resourceController extends Controller
+class ~uc:resourceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,7 +25,7 @@ class :uc:resourceController extends Controller
      */
     public function index()
     {
-        return view(':package:::resource.index');
+        return view('~package::~resource.index');
     }
 
     /**
@@ -39,10 +40,10 @@ class :uc:resourceController extends Controller
      */
     public function datatable(DataTables $dataTables)
     {
-        return $dataTables->eloquent(:uc:resource::query())
+        return $dataTables->eloquent(~uc:resource::query())
             ->rawColumns(['buttons'])
-            ->editColumn('buttons', function ($:resource) {
-                return view(':package:::resource.listButtons', [':resource' => $:resource])->render();
+            ->editColumn('buttons', function ($~resource) {
+                return view('~package::~resource.listButtons', ['~resource' => $~resource])->render();
             })->make(true);
     }
 
@@ -53,7 +54,7 @@ class :uc:resourceController extends Controller
      */
     public function create()
     {
-        return view(':package:::resource.create');
+        return view('~package::~resource.create');
     }
 
     /**
@@ -70,67 +71,67 @@ class :uc:resourceController extends Controller
             'label' => 'required',
         ]);
 
-        $:resource = :uc:resource::create($request->post());
+        $~resource = ~uc:resource::create($request->post());
 
         return redirect()
-            ->route(':package.:resource.edit', $:resource)
-            ->with('growl', [__(':package:::resource.create_success')]);
+            ->route('~package.~resource.edit', $~resource)
+            ->with('growl', [__('~package::~resource.create_success'), 'success']);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  :uc:resource  $:resource
+     * @param  ~uc:resource  $~resource
      * @return Application|Factory|Response|View
      */
-    public function show(:uc:resource $:resource)
+    public function show(~uc:resource $~resource)
     {
-        return view(':package:::resource.show', compact(':resource'));
+        return view('~package::~resource.show', compact('~resource'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  :uc:resource  $:resource
+     * @param  ~uc:resource  $~resource
      * @return Application|Factory|Response|View
      */
-    public function edit(:uc:resource $:resource)
+    public function edit(~uc:resource $~resource)
     {
-        return view(':package:::resource.edit', compact(':resource'));
+        return view('~package::~resource.edit', compact('~resource'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  Request  $request
-     * @param  :uc:resource  $:resource
+     * @param  ~uc:resource  $~resource
      *
      * @throws ValidationException
      * @return RedirectResponse
      */
-    public function update(Request $request, :uc:resource $:resource)
+    public function update(Request $request, ~uc:resource $~resource)
     {
         $this->validate($request, [
             'label' => 'required',
         ]);
 
-        $:resource->update($request->post());
+        $~resource->update($request->post());
 
         return redirect()
-            ->route(':package.:resource.edit', $:resource)
-            ->with('growl', [__(':package:::resource.update_success')]);
+            ->route('~package.~resource.edit', $~resource)
+            ->with('growl', [__('~package::~resource.update_success'), 'success']);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  :uc:resource  $:resource
+     * @param  ~uc:resource  $~resource
      *
      * @throws Exception
      * @return JsonResponse
      */
-    public function destroy(:uc:resource $:resource)
+    public function destroy(~uc:resource $~resource)
     {
-        return response()->json(['success' => $:resource->delete() ?? false]);
+        return response()->json(['success' => $~resource->delete() ?? false]);
     }
 }

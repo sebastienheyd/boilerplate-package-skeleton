@@ -1,6 +1,6 @@
 <?php
 
-namespace :uc:vendor\:uc:package\Tests;
+namespace ~uc:vendor\~uc:package\Tests;
 
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
 
@@ -34,6 +34,6 @@ abstract class TestCase extends OrchestraTestCase
      */
     protected function getPackageProviders($app)
     {
-        return [':uc:vendor\:uc:package\:uc:packageServiceProvider'];
+        return ['~uc:vendor\~uc:package\~uc:packageServiceProvider'];
     }
 }

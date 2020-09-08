@@ -1,12 +1,10 @@
 <?php
 
-// phpcs:disable PSR1.Classes.ClassDeclaration.MissingNamespace
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Create:uc:pl:resourceTable extends Migration
+class Create~uc:pl:resourceTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,9 +13,10 @@ class Create:uc:pl:resourceTable extends Migration
      */
     public function up()
     {
-        Schema::create(':pl:resource', function (Blueprint $table) {
+        Schema::create('~pl:resource', function (Blueprint $table) {
             $table->id();
             $table->string('label');
+            $table->timestamps();
         });
     }
 
@@ -28,6 +27,6 @@ class Create:uc:pl:resourceTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists(':pl:resource');
+        Schema::dropIfExists('~pl:resource');
     }
 }

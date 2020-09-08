@@ -7,7 +7,7 @@
 [![Scrutinizer](https://scrutinizer-ci.com/g/~vendor/~package/badges/quality-score.png?b=master&style=flat-square)](https://scrutinizer-ci.com/g/~vendor/~package/?branch=master)
 [![License](https://img.shields.io/github/license/~vendor/~package.svg)](license.md)
 
-~package_description. Take a look at [contributing.md](contributing.md) to see a to do list.
+~package_description.
 
 ## Installation
 
@@ -46,10 +46,4 @@ Please see [contributing.md](contributing.md) for details and a todolist.
 
 ## License
 
-~license. Please see the [license file](license.md) for more information.
-
-[ico-travis]: https://img.shields.io/travis/~vendor/~package/master.svg?style=flat-square
-[ico-styleci]: https://styleci.io/repos/12345678/shield
-
-[link-travis]: 
-[link-styleci]: https://styleci.io/repos/12345678
+~license - Please see the [license file](license.md) for more information.

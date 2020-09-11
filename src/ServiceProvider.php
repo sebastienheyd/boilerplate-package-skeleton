@@ -18,6 +18,10 @@ class ~uc:packageServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/resources/views', '~package');
         $this->loadRoutesFrom(__DIR__.'/routes/~package.php');
 
+        app('boilerplate.menu.items')->registerMenuItem([
+            Menu\~uc:packageMenu::class,
+        ]);
+
         // Publishing is only necessary when using the CLI.
         if ($this->app->runningInConsole()) {
             $this->bootForConsole();
@@ -32,10 +36,6 @@ class ~uc:packageServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(__DIR__.'/config/~package.php', '~package');
-
-        app('boilerplate.menu.items')->registerMenuItem([
-            Menu\~uc:packageMenu::class,
-        ]);
     }
 
     /**

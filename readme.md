@@ -13,25 +13,25 @@
 
 Via Composer
 
-``` bash
+```bash
 composer require ~vendor/~package
 ```
 
 Via [sebastienheyd/boilerplate-packager](https://github.com/sebastienheyd/boilerplate-packager)
 
-``` bash
+```bash
 php artisan require ~vendor/~package
 ```
 
 ## Testing
 
-``` bash
+```bash
 make test
 ```
 
 ## Coding standard
 
-``` bash
+```bash
 make cs
 ```
 

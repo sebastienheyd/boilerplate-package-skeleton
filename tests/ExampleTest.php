@@ -2,9 +2,7 @@
 
 namespace ~uc:vendor\~uc:package\Tests;
 
-use PHPUnit\Framework\TestCase;
-
-class ExampleTest extends TestCase
+class ~uc:packageTest extends TestCase
 {
     public function test_true_is_true()
     {

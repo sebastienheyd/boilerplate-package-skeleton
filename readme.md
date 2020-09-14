@@ -1,49 +1,36 @@
-~uc:wd:package for [sebastienheyd/boilerplate](https://github.com/sebastienheyd/boilerplate)
+# Skeleton for [sebastienheyd/boilerplate-packager](https://github.com/sebastienheyd/boilerplate-packager)
 
-[![Version](https://img.shields.io/packagist/v/~vendor/~package.svg?style=flat-square)](https://packagist.org/packages/~vendor/~package)
-[![Downloads](https://img.shields.io/packagist/dt/~vendor/~package.svg?style=flat-square)](https://packagist.org/packages/~vendor/~package)
-[![Travis](https://img.shields.io/travis/~vendor/~package/master.svg?style=flat-square)](https://travis-ci.org/~vendor/~package)
-[![StyleCI](https://styleci.io/repos/12345678/shield)](https://styleci.io/repos/12345678)
-[![Scrutinizer](https://scrutinizer-ci.com/g/~vendor/~package/badges/quality-score.png?b=master&style=flat-square)](https://scrutinizer-ci.com/g/~vendor/~package/?branch=master)
-[![License](https://img.shields.io/github/license/~vendor/~package.svg)](license.md)
+These files are used as a structure to generate a package with [sebastienheyd/boilerplate-packager](https://github.com/sebastienheyd/boilerplate-packager) create.
 
-~package_description.
+### Variables
 
-## Installation
+When generating, variables are converted to their values. 
+All variables must start with the tilde (~) symbol to be converted, e.g : `~vendor` &rarr; `sebastienheyd`
 
-Via Composer
+| Available variable |
+|---|
+| ~vendor |
+| ~package |
+| ~resource |
+| ~author_name  |
+| ~author_email |
+| ~package_description |
+| ~license |
+| ~date |
+| ~locale |
 
-```bash
-composer require ~vendor/~package
-```
+Modifiers are also available like studly caps or uppercase, see the table below. E.g. `~wd:package` &rarr; `Boilerplate Packager`
 
-Via [sebastienheyd/boilerplate-packager](https://github.com/sebastienheyd/boilerplate-packager)
+| Modifier | Description | e.g |
+|---|---|---|
+| ~uc:pl: | Uppercase all words and convert to plural with space as separator | event &rarr; Events |
+| ~wd: | Uppercase all words with space as separator | my-package &rarr; My Package |
+| ~uc: | Converts to StudlyCase | my-package &rarr; MyPackage |
+| ~sc: | Converts to snake_case | my-package &rarr; my_package |
+| ~pl: | Converts to plural | event &rarr; events |
 
-```bash
-php artisan require ~vendor/~package
-```
+### File moving and renaming
 
-## Testing
+After the conversion of all variables, packager will rename files that are declared in [`packager.json`](packager.json)
 
-```bash
-make test
-```
-
-## Coding standard
-
-```bash
-make cs
-```
-
-## Contributing
-
-Please see [contributing.md](contributing.md) for details and a todolist.
-
-## Credits
-
-- [~author_name](https://github.com/~vendor)
-- [All Contributors](https://github.com/~vendor/~package/contributors)
-
-## License
-
-~license - Please see the [license file](license.md) for more information.
+**NB** you can use variables too in packager.json to rename files

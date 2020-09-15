@@ -15,5 +15,5 @@ $default = [
 
 Route::group($default, function () {
     Route::resource('~resource', '~uc:resourceController');
-    Route::post('~resource/datatable', ['as' => '~resource.datatable', 'uses' => '~uc:resourceController@datatable']);
+    Route::post('~resource/datatable', ['as' => 'datatable', 'uses' => '~uc:resourceController@datatable']);
 });

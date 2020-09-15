@@ -39,10 +39,9 @@
         dTable = $('#~pl:resource-table').DataTable({
             processing: true,
             serverSide: true,
-            //stateSave: true,
             autoWidth: false,
             ajax: {
-                url: '{!! route('~package.~resource.datatable') !!}',
+                url: '{!! route('~resource.datatable') !!}',
                 type: 'post',
             },
             order: [[0, 'desc']],

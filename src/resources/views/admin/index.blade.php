@@ -41,7 +41,7 @@
             serverSide: true,
             autoWidth: false,
             ajax: {
-                url: '{!! route('~resource.datatable') !!}',
+                url: '{!! route('~package.~resource.datatable') !!}',
                 type: 'post',
             },
             order: [[0, 'desc']],
@@ -57,6 +57,20 @@
                     class: "visible-on-hover text-nowrap"
                 }
             ]
+        })
+
+        $(document).on('click', 'button[data-action=show]', function (e) {
+            $.ajax({
+                url: $(this).data('href'),
+                type: 'get',
+                success: function (res) {
+                    bootbox.dialog({
+                        onEscape: true,
+                        size: 'xl',
+                        message: res
+                    })
+                }
+            })
         })
 
         $(document).on('click', 'button[data-action=delete]', function (e) {

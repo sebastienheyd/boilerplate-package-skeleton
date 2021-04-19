@@ -1,15 +1,15 @@
 <?php
 
 return [
-    'create'         => '~uc:resource creation',
-    'create_success' => '~uc:resource has been created',
+    'create'         => 'Add a ~uc:resource',
+    'create_success' => 'A ~uc:resource has been added',
     'delete_confirm' => 'Confirm the deletion of the ~resource?',
     'delete_success' => '~uc:resource has been deleted',
-    'edit'           => '~uc:resource edition',
+    'edit'           => 'Editing a ~uc:resource',
     'id'             => 'Id',
     'label'          => 'Label',
-    'list'           => '~uc:pl:resource list',
+    'list'           => 'List of ~uc:pl:resource',
     'save'           => 'Save',
     'title'          => '~uc:pl:resource',
-    'update_success' => '~uc:resource has been updated',
+    'update_success' => 'The ~uc:resource has been updated',
 ];

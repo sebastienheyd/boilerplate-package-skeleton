@@ -25,7 +25,7 @@ class ~uc:resourceController extends Controller
      */
     public function index()
     {
-        return view('~package::~resource.index');
+        return view('~package::~resource.list');
     }
 
     /**

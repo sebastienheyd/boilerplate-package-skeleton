@@ -15,11 +15,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12">
-                @component('boilerplate::card')
-                    @include('~package::~resource.form')
-                @endcomponent
-            </div>
+            @include('~package::~resource.form')
         </div>
     {!! Form::close() !!}
 @endsection

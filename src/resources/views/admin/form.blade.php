@@ -1,9 +1,5 @@
-<div class="col-12">
+<div class="col-6">
     @component('boilerplate::card')
-        <div class="form-group">
-            {{ Form::label('label', 'Label') }}
-            {{ Form::text('label', old('label', $~resource->label ?? ''), ['class' => 'form-control'.$errors->first('label',' is-invalid')]) }}
-            {!! $errors->first('label','<div class="error-bubble"><div>:message</div></div>') !!}
-        </div>
+        @component('boilerplate::input', ['name' => 'label', 'label' => '~package::resource.label', 'value' => $~resource->label ?? '', 'autofocus' => true])@endcomponent
     @endcomponent
 </div>

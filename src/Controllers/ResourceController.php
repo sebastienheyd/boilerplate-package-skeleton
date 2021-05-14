@@ -69,13 +69,15 @@ class ~uc:resourceController extends Controller
     {
         $this->validate($request, [
             'label' => 'required',
+        ],[],[
+            'label' => __('~package::resource.label')
         ]);
 
         $~resource = ~uc:resource::create($request->post());
 
         return redirect()
             ->route('~package.~resource.edit', $~resource)
-            ->with('growl', [__('~package::~resource.create_success'), 'success']);
+            ->with('growl', [__('~package::resource.create_success'), 'success']);
     }
 
     /**
@@ -113,13 +115,15 @@ class ~uc:resourceController extends Controller
     {
         $this->validate($request, [
             'label' => 'required',
+        ],[],[
+            'label' => __('~package::resource.label')
         ]);
 
         $~resource->update($request->post());
 
         return redirect()
             ->route('~package.~resource.edit', $~resource)
-            ->with('growl', [__('~package::~resource.update_success'), 'success']);
+            ->with('growl', [__('~package::resource.update_success'), 'success']);
     }
 
     /**

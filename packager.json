@@ -8,7 +8,6 @@
     "src/database/migrations/resource.php": "src/database/migrations/~date_create_~pl:resource_table.php",
     "src/Menu/PackageMenu.php": "src/Menu/~uc:packageMenu.php",
     "src/Models/Resource.php": "src/Models/~uc:resource.php",
-    "src/resources/lang/en/resource.php": "src/resources/lang/en/~resource.php",
     "src/resources/views/admin": "src/resources/views/~resource",
     "src/routes/routes.php": "src/routes/~package.php",
     "tests/ExampleTest.php": "tests/~uc:packageTest.php"

@@ -1,9 +1,9 @@
 @extends('boilerplate::layout.index', [
-    'title' => __('~package::resource.title'),
-    'subtitle' => __('~package::resource.edit'),
+    'title' => __('~package::resource.~resource.title'),
+    'subtitle' => __('~package::resource.~resource.edit'),
     'breadcrumb' => [
-        __('~package::resource.title') => '~package.~resource.index',
-        __('~package::resource.edit')
+        __('~package::resource.~resource.title') => '~package.~resource.index',
+        __('~package::resource.~resource.edit')
     ]
 ])
 

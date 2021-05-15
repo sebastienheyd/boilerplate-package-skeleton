@@ -1,8 +1,8 @@
 @extends('boilerplate::layout.index', [
-    'title' => __('~package::resource.title'),
-    'subtitle' => __('~package::resource.list'),
+    'title' => __('~package::resource.~resource.title'),
+    'subtitle' => __('~package::resource.~resource.list'),
     'breadcrumb' => [
-        __('~package::resource.title'),
+        __('~package::resource.~resource.title'),
     ]
 ])
 
@@ -11,7 +11,7 @@
         <div class="col-sm-12 mb-3">
             <span class="btn-group float-right">
                 <a href="{{ route("~package.~resource.create") }}" class="btn btn-primary">
-                    @lang('~package::resource.create')
+                    @lang('~package::resource.~resource.create')
                 </a>
             </span>
         </div>
@@ -21,8 +21,8 @@
             <table class="table table-striped table-hover va-middle" id="~pl:resource-table">
                 <thead>
                     <tr>
-                        <th>@lang('~package::resource.id')</th>
-                        <th>@lang('~package::resource.label')</th>
+                        <th>@lang('~package::resource.~resource.id')</th>
+                        <th>@lang('~package::resource.~resource.label')</th>
                         <th>{{-- buttons --}}</th>
                     </tr>
                 </thead>
@@ -76,7 +76,7 @@
         $(document).on('click', 'button[data-action=delete]', function (e) {
             e.preventDefault()
             let url = $(this).data('href')
-            bootbox.confirm("@lang('~package::resource.delete_confirm')", function (res) {
+            bootbox.confirm("@lang('~package::resource.~resource.delete_confirm')", function (res) {
                 if (res === false) {
                     return
                 }
@@ -87,7 +87,7 @@
                     success: function (res) {
                         if (res.success) {
                             dTable.ajax.reload()
-                            growl("@lang('~package::resource.delete_success')", "success")
+                            growl("@lang('~package::resource.~resource.delete_success')", "success")
                         }
                     }
                 })

@@ -2,16 +2,18 @@
 
 return [
     '~resource' => [
-        'create'         => 'Add a ~uc:resource',
-        'create_success' => 'A ~uc:resource has been added',
+        'create'         => 'Add a ~resource',
+        'create_success' => 'A ~resource has been added',
         'delete_confirm' => 'Confirm the deletion of the ~resource?',
         'delete_success' => '~uc:resource has been deleted',
-        'edit'           => 'Editing a ~uc:resource',
-        'id'             => 'Id',
-        'label'          => 'Label',
-        'list'           => 'List of ~uc:pl:resource',
+        'edit'           => 'Editing a ~resource',
+        'list'           => 'List of ~pl:resource',
         'save'           => 'Save',
         'title'          => '~uc:pl:resource',
-        'update_success' => 'The ~uc:resource has been updated',
-    ]
+        'update_success' => 'The ~resource has been updated',
+        'properties'     => [
+            'id'    => 'Id',
+            'label' => 'Label',
+        ],
+    ],
 ];

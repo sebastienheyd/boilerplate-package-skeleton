@@ -2,13 +2,13 @@
 
 use Illuminate\Database\Migrations\Migration;
 
-class ~uc:packagePermissions extends Migration
+class Resource~uc:resourcePermissions extends Migration
 {
     private $permissions = [
         [
             'name'         => '~sc:package_access',
-            'display_name' => '~package::permissions.access.name',
-            'description'  => '~package::permissions.access.description',
+            'display_name' => '~package::permissions.~resource.access.name',
+            'description'  => '~package::permissions.~resource.access.description',
         ],
     ];
 

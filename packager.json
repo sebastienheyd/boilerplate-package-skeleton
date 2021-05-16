@@ -4,7 +4,7 @@
     "src/config/config.php": "src/config/~package.php",
     "src/Controllers/ResourceController.php": "src/Controllers/~uc:resourceController.php",
     "src/database/migrations/category.php": "src/database/migrations/~date_~sc:package_category_permissions.php",
-    "src/database/migrations/permissions.php": "src/database/migrations/~date_~sc:package_permissions.php",
+    "src/database/migrations/permissions.php": "src/database/migrations/~date_resource_~resource_permissions.php",
     "src/database/migrations/resource.php": "src/database/migrations/~date_create_~pl:resource_table.php",
     "src/Menu/PackageMenu.php": "src/Menu/~uc:packageMenu.php",
     "src/Models/Resource.php": "src/Models/~uc:resource.php",

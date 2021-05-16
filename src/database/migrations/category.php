@@ -13,7 +13,7 @@ class ~uc:packageCategoryPermissions extends Migration
     {
         DB::table('permissions_categories')->insert([
             'name'         => '~sc:package',
-            'display_name' => '~package::permissions.category',
+            'display_name' => '~package::permissions.~resource.category',
         ]);
     }
 

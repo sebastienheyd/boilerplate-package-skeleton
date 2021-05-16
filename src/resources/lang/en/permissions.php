@@ -1,9 +1,11 @@
 <?php
 
 return [
-    'category' => '~wd:package',
-    'access'   => [
-        'name'        => 'Access to ~uc:pl:resource management',
-        'description' => 'Allows access to list of ~uc:pl:resource and to edit, create and delete ~uc:pl:resource',
-    ]
+    '~resource' => [
+        'category' => '~uc:pl:resource management',
+        'access'   => [
+            'name'        => 'Access to ~pl:resource management',
+            'description' => 'Allows access to list of ~pl:resource and to edit, create and delete ~pl:resource',
+        ],
+    ],
 ];

@@ -21,8 +21,8 @@
             <table class="table table-striped table-hover va-middle" id="~pl:resource-table">
                 <thead>
                     <tr>
-                        <th>@lang('~package::resource.~resource.id')</th>
-                        <th>@lang('~package::resource.~resource.label')</th>
+                        <th>@lang('~package::resource.~resource.properties.id')</th>
+                        <th>@lang('~package::resource.~resource.properties.label')</th>
                         <th>{{-- buttons --}}</th>
                     </tr>
                 </thead>

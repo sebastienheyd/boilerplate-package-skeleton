@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 
-class ~uc:packageCategoryPermissions extends Migration
+class ~uc:resourcePermissionsCategory extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class ~uc:packageCategoryPermissions extends Migration
     public function up()
     {
         DB::table('permissions_categories')->insert([
-            'name'         => '~sc:package',
+            'name'         => '~resource',
             'display_name' => '~package::permissions.~resource.category',
         ]);
     }
@@ -24,6 +24,6 @@ class ~uc:packageCategoryPermissions extends Migration
      */
     public function down()
     {
-        DB::table('permissions_categories')->where('name', '~sc:package')->delete();
+        DB::table('permissions_categories')->where('name', '~resource')->delete();
     }
 }

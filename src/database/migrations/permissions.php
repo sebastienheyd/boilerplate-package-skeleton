@@ -2,11 +2,11 @@
 
 use Illuminate\Database\Migrations\Migration;
 
-class Resource~uc:resourcePermissions extends Migration
+class ~uc:resourcePermissions extends Migration
 {
     private $permissions = [
         [
-            'name'         => '~sc:package_access',
+            'name'         => '~resource_access',
             'display_name' => '~package::permissions.~resource.access.name',
             'description'  => '~package::permissions.~resource.access.description',
         ],
@@ -19,7 +19,7 @@ class Resource~uc:resourcePermissions extends Migration
      */
     public function up()
     {
-        $categoryId = DB::table('permissions_categories')->where('name', '~sc:package')->first()->id;
+        $categoryId = DB::table('permissions_categories')->where('name', '~resource')->first()->id;
 
         // Insert permissions
         foreach ($this->permissions as $permission) {

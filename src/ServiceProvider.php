@@ -46,26 +46,24 @@ class ~uc:packageServiceProvider extends ServiceProvider
     protected function bootForConsole()
     {
         // Publishing the configuration file.
-        $this->publishes([
+        /*$this->publishes([
             __DIR__.'/config/~package.php' => config_path('~package.php'),
-        ], ['~package', 'config']);
+        ], ['~package', 'boilerplate', 'boilerplate-config']);*/
 
         // Publishing public folder.
-        if (is_dir(__DIR__.'/public')) {
-            $this->publishes([
-                __DIR__.'/public' => public_path('assets/vendor/~package')
-            ], ['~package', 'public']);
-        }
+        /*$this->publishes([
+            __DIR__.'/public' => public_path('assets/vendor/~package')
+        ], ['~package', 'boilerplate', 'boilerplate-public']);*/
 
         // Publishing the translation files.
         /*$this->publishes([
             __DIR__.'/resources/lang' => resource_path('lang/vendor/~vendor/~package'),
-        ], ['~package', 'lang', 'locale']);*/
+        ], ['~package', 'boilerplate-lang']);*/
 
         // Publishing the views.
         /*$this->publishes([
             __DIR__.'/resources/views' => base_path('resources/views/vendor/~vendor'),
-        ], ['~package', 'views']);*/
+        ], ['~package', 'boilerplate-views']);*/
 
         // Registering package commands.
         // $this->commands([]);

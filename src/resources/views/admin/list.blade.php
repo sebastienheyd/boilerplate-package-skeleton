@@ -17,51 +17,18 @@
         </div>
     </div>
     @component('boilerplate::card')
-        <div class="table-responsive">
-            <table class="table table-striped table-hover va-middle" id="~pl:resource-table">
-                <thead>
-                    <tr>
-                        <th>@lang('~package::resource.~resource.properties.id')</th>
-                        <th>@lang('~package::resource.~resource.properties.label')</th>
-                        <th>{{-- buttons --}}</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-        </div>
+        @component('boilerplate::datatable', ['name' => '~resources'])@endcomponent
     @endcomponent
 @endsection
 
-@include('boilerplate::load.datatables')
-
 @push('js')
+@component('boilerplate::minify')
     <script>
-        dTable = $('#~pl:resource-table').DataTable({
-            processing: true,
-            serverSide: true,
-            autoWidth: false,
-            ajax: {
-                url: '{!! route('~package.~resource.datatable') !!}',
-                type: 'post',
-            },
-            order: [[0, 'desc']],
-            columns: [
-                {data: 'id', name: 'id', width: '10px'},
-                {data: 'label', name: 'label'},
-                {
-                    data: 'buttons',
-                    name: 'buttons',
-                    orderable: false,
-                    searchable: false,
-                    width: '60px',
-                    class: "visible-on-hover text-nowrap"
-                }
-            ]
-        })
+        $(document).on('click', 'a.show-~resource', function (e) {
+            e.preventDefault();
 
-        $(document).on('click', 'button[data-action=show]', function (e) {
             $.ajax({
-                url: $(this).data('href'),
+                url: $(this).attr('href'),
                 type: 'get',
                 success: function (res) {
                     bootbox.dialog({
@@ -73,9 +40,9 @@
             })
         })
 
-        $(document).on('click', 'button[data-action=delete]', function (e) {
+        $(document).on('click', 'a.delete-~resource', function (e) {
             e.preventDefault()
-            let url = $(this).data('href')
+            let url = $(this).attr('href')
             bootbox.confirm("@lang('~package::resource.~resource.delete_confirm')", function (res) {
                 if (res === false) {
                     return
@@ -86,7 +53,7 @@
                     type: 'delete',
                     success: function (res) {
                         if (res.success) {
-                            dTable.ajax.reload()
+                            dt~uc:resources.ajax.reload();
                             growl("@lang('~package::resource.~resource.delete_success')", "success")
                         }
                     }
@@ -94,4 +61,5 @@
             })
         })
     </script>
+@endcomponent
 @endpush

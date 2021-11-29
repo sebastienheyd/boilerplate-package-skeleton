@@ -3,6 +3,7 @@
     "src/ServiceProvider.php": "src/~uc:packageServiceProvider.php",
     "src/config/config.php": "src/config/~package.php",
     "src/Controllers/ResourceController.php": "src/Controllers/~uc:resourceController.php",
+    "src/Datatables/ResourcesDatatable.php": "src/Datatables/~uc:resourcesDatatable.php",
     "src/database/migrations/resource.php": "src/database/migrations/~date1_create_~pl:resource_table.php",
     "src/database/migrations/category.php": "src/database/migrations/~date2_~resource_permissions_category.php",
     "src/database/migrations/permissions.php": "src/database/migrations/~date3_~resource_permissions.php",

@@ -13,7 +13,6 @@ use Illuminate\Http\Response;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 use Throwable;
-use Yajra\DataTables\DataTables;
 use ~uc:vendor\~uc:package\Models\~uc:resource;
 
 class ~uc:resourceController extends Controller
@@ -70,7 +69,7 @@ class ~uc:resourceController extends Controller
         $this->validate($request, [
             'label' => 'required',
         ],[],[
-            'label' => __('~package::resource.~resource.label')
+            'label' => __('~package::resource.~resource.properties.label')
         ]);
 
         $~resource = ~uc:resource::create($request->post());
@@ -116,7 +115,7 @@ class ~uc:resourceController extends Controller
         $this->validate($request, [
             'label' => 'required',
         ],[],[
-            'label' => __('~package::resource.~resource.label')
+            'label' => __('~package::resource.~resource.properties.label')
         ]);
 
         $~resource->update($request->post());

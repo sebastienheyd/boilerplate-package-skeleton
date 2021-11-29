@@ -18,9 +18,8 @@ class ~uc:packageServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/resources/views', '~package');
         $this->loadRoutesFrom(__DIR__.'/routes/~package.php');
 
-        app('boilerplate.menu.items')->registerMenuItem([
-            Menu\~uc:packageMenu::class,
-        ]);
+        app('boilerplate.menu.items')->registerMenuItem(Menu\~uc:packageMenu::class);
+        app('boilerplate.datatables')->registerDatatable(Datatables\~uc:resourcesDatatable::class);
 
         // Publishing is only necessary when using the CLI.
         if ($this->app->runningInConsole()) {

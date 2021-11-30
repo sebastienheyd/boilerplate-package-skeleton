@@ -9,10 +9,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Validation\ValidationException;
-use Illuminate\View\View;
-use Throwable;
 use ~uc:vendor\~uc:package\Models\~uc:resource;
 
 class ~uc:resourceController extends Controller
@@ -20,7 +17,7 @@ class ~uc:resourceController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Application|Factory|Response|View
+     * @return Application|Factory
      */
     public function index()
     {
@@ -28,28 +25,9 @@ class ~uc:resourceController extends Controller
     }
 
     /**
-     * Get datatable of the resource.
-     *
-     * @param DataTables $dataTables
-     *
-     * @link https://yajrabox.com/docs/laravel-datatables
-     *
-     * @throws Throwable
-     * @return mixed
-     */
-    public function datatable(DataTables $dataTables)
-    {
-        return $dataTables->eloquent(~uc:resource::query())
-            ->rawColumns(['buttons'])
-            ->editColumn('buttons', function ($~resource) {
-                return view('~package::~resource.listButtons', ['~resource' => $~resource])->render();
-            })->make(true);
-    }
-
-    /**
      * Show the form for creating a new resource.
      *
-     * @return Application|Factory|Response|View
+     * @return Application|Factory
      */
     public function create()
     {
@@ -64,7 +42,7 @@ class ~uc:resourceController extends Controller
      * @throws ValidationException
      * @return RedirectResponse
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         $this->validate($request, [
             'label' => 'required',
@@ -83,7 +61,7 @@ class ~uc:resourceController extends Controller
      * Display the specified resource.
      *
      * @param  ~uc:resource  $~resource
-     * @return Application|Factory|Response|View
+     * @return Application|Factory
      */
     public function show(~uc:resource $~resource)
     {
@@ -94,7 +72,7 @@ class ~uc:resourceController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  ~uc:resource  $~resource
-     * @return Application|Factory|Response|View
+     * @return Application|Factory
      */
     public function edit(~uc:resource $~resource)
     {
@@ -110,7 +88,7 @@ class ~uc:resourceController extends Controller
      * @throws ValidationException
      * @return RedirectResponse
      */
-    public function update(Request $request, ~uc:resource $~resource)
+    public function update(Request $request, ~uc:resource $~resource): RedirectResponse
     {
         $this->validate($request, [
             'label' => 'required',
@@ -133,7 +111,7 @@ class ~uc:resourceController extends Controller
      * @throws Exception
      * @return JsonResponse
      */
-    public function destroy(~uc:resource $~resource)
+    public function destroy(~uc:resource $~resource): JsonResponse
     {
         return response()->json(['success' => $~resource->delete() ?? false]);
     }

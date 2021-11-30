@@ -1,19 +1,19 @@
 <?php
 
+use \~uc:vendor\~uc:package\Controllers\~uc:resourceController;
+
 $default = [
     'prefix'     => config('boilerplate.app.prefix', '').'/~package',
     'domain'     => config('boilerplate.app.domain', ''),
+    'as'         => '~package.',
     'middleware' => [
         'web',
         'boilerplatelocale',
         'boilerplateauth',
         'ability:admin,backend_access,~sc:package_access'
     ],
-    'as'         => '~package.',
-    'namespace'  => '\~uc:vendor\~uc:package\Controllers',
 ];
 
 Route::group($default, function () {
-    Route::post('~resource/datatable', ['as' => '~resource.datatable', 'uses' => '~uc:resourceController@datatable']);
-    Route::resource('~resource', '~uc:resourceController');
+    Route::resource('~resource', ~uc:resourceController::class);
 });

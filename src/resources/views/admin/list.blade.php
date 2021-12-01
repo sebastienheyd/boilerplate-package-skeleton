@@ -24,7 +24,7 @@
 @push('js')
 @component('boilerplate::minify')
     <script>
-        $(document).on('click', 'a.show-~resource', function (e) {
+        $(document).on('click', '[data-action="dt-show-element"]', function (e) {
             e.preventDefault();
 
             $.ajax({
@@ -37,27 +37,6 @@
                         message: res
                     })
                 }
-            })
-        })
-
-        $(document).on('click', 'a.delete-~resource', function (e) {
-            e.preventDefault()
-            let url = $(this).attr('href')
-            bootbox.confirm("@lang('~package::resource.~resource.delete_confirm')", function (res) {
-                if (res === false) {
-                    return
-                }
-
-                $.ajax({
-                    url: url,
-                    type: 'delete',
-                    success: function (res) {
-                        if (res.success) {
-                            dt~uc:resources.ajax.reload();
-                            growl("@lang('~package::resource.~resource.delete_success')", "success")
-                        }
-                    }
-                })
             })
         })
     </script>

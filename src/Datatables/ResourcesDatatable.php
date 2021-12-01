@@ -18,7 +18,10 @@ class ~uc:resourcesDatatable extends Datatable
 
     public function setUp()
     {
-        $this->order('id', 'desc');
+        $this->locale([
+            'deleteConfirm' => __('~package::resource.~resource.delete_confirm'),
+            'deleteSuccess' => __('~package::resource.~resource.delete_success'),
+        ])->order('id', 'desc');
     }
 
     public function columns(): array
@@ -44,27 +47,10 @@ class ~uc:resourcesDatatable extends Datatable
             Column::add()
                 ->width('20px')
                 ->actions(function (~uc:resource $~resource) {
-                    return implode([
-                        Button::add()
-                            ->route('~package.~resource.show', $~resource)
-                            ->class('show-~resource')
-                            ->color('default')
-                            ->icon('eye')
-                            ->make(),
-
-                        Button::add()
-                            ->route('~package.~resource.edit', $~resource)
-                            ->class('edit-~resource')
-                            ->color('primary')
-                            ->icon('pencil-alt')
-                            ->make(),
-
-                        Button::add()
-                            ->route('~package.~resource.destroy', $~resource)
-                            ->class('delete-~resource')
-                            ->color('danger')
-                            ->icon('trash')
-                            ->make(),
+                    return join([
+                        Button::show('~package.~resource.show', $~resource),
+                        Button::edit('~package.~resource.edit', $~resource),
+                        Button::delete('~package.~resource.destroy', $~resource),
                     ]);
                 }),
         ];

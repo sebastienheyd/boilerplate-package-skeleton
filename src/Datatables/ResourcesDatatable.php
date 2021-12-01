@@ -18,7 +18,7 @@ class ~uc:resourcesDatatable extends Datatable
 
     public function setUp()
     {
-        $this->locale([
+        $this->permissions(['~resource_access'])->locale([
             'deleteConfirm' => __('~package::resource.~resource.delete_confirm'),
             'deleteSuccess' => __('~package::resource.~resource.delete_success'),
         ])->order('id', 'desc');

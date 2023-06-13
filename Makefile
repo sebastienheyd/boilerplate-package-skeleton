@@ -17,8 +17,14 @@ cs: composer.phar vendor ## Check for coding standards
 csfix: composer.phar vendor ## Check and fix for coding standards
 	@php vendor/bin/phpcbf
 
-test: composer.phar vendor phpunit.xml ## Launch test
-	@php vendor/bin/phpunit
+test: vendor phpunit.xml ## Unit testing
+	@php vendor/bin/phpunit --stop-on-failure
+
+testcoverage: composer.phar vendor phpunit.xml ## Unit testing with code coverage
+	@XDEBUG_MODE=coverage php vendor/bin/phpunit --coverage-text
+
+testcoveragehtml: composer.phar vendor phpunit.xml ## Unit testing with code coverage in HTML
+	@XDEBUG_MODE=coverage php vendor/bin/phpunit --coverage-html coverage
 
 clean: ## Remove files needed for tests
-	@rm -rf report testbench vendor .phpunit.result.cache composer.lock composer.phar
+	@rm -rf composer.phar composer.lock vendor testbench coverage .phpunit.result.cache .phpunit.cache

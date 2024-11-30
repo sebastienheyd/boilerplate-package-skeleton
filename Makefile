@@ -1,4 +1,4 @@
-.PHONY:help test cs csfix clean
+.PHONY:help cs csfix test testcoverage testcoveragehtml clean
 .DEFAULT_GOAL=help
 
 help:
@@ -8,13 +8,13 @@ composer.phar:
 	@curl -sS https://getcomposer.org/installer | php -- --filename=composer.phar
 	@chmod +x composer.phar
 
-vendor: composer.json
-	@./composer.phar update --optimize-autoloader --no-suggest
+vendor: composer.phar composer.json
+	@./composer.phar install --prefer-source --no-interaction --optimize-autoloader
 
-cs: composer.phar vendor ## Check for coding standards
+cs: vendor ## Check for coding standards
 	@php vendor/bin/phpcs
 
-csfix: composer.phar vendor ## Check and fix for coding standards
+csfix: vendor ## Check and fix for coding standards
 	@php vendor/bin/phpcbf
 
 test: vendor phpunit.xml ## Unit testing

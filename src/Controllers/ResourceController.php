@@ -44,7 +44,7 @@ class ~uc:resourceController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        $this->validate($request, [
+        $request->validate([
             'label' => 'required',
         ],[],[
             'label' => __('~package::resource.~resource.properties.label')
@@ -90,7 +90,7 @@ class ~uc:resourceController extends Controller
      */
     public function update(Request $request, ~uc:resource $~resource): RedirectResponse
     {
-        $this->validate($request, [
+        $request->validate([
             'label' => 'required',
         ],[],[
             'label' => __('~package::resource.~resource.properties.label')
